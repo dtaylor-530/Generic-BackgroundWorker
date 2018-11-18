@@ -2,6 +2,16 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <Product />
+    <Company />
+    <Authors>Dave Meadowcroft</Authors>
+    <Description>Generic Background Worker .Net Standard Library. For running background taks using generic types.
+https://www.codeproject.com/Articles/42103/Generic-Background-Worker</Description>
+    <PackageId>GenericBackgroundWorker</PackageId>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <PackageTags>BackgroundWorker Background Thread</PackageTags>
+    <PackageLicenseUrl>https://www.codeproject.com/info/cpol10.aspx</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/dtaylor-530/Generic-BackgroundWorker</PackageProjectUrl>
   </PropertyGroup>
 
 </Project>
