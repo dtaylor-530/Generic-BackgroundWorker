@@ -42,7 +42,7 @@ namespace System.ComponentModel.Custom.Generic
         #region Fields
 
         private AsyncOperation asyncOperation = null;
-        private readonly BasicDelegate threadStart;
+        private readonly Action workerthreadStart;
         private readonly SendOrPostCallback operationCompleted;
         private readonly SendOrPostCallback progressReporter;
 
@@ -55,7 +55,7 @@ namespace System.ComponentModel.Custom.Generic
         /// </summary>
         public BackgroundWorker()
         {
-            threadStart = new BasicDelegate(WorkerThreadStart);
+            workerthreadStart = () => WorkerThreadStart();
             operationCompleted = new SendOrPostCallback(AsyncOperationCompleted);
             progressReporter = new SendOrPostCallback(ProgressReporter);
             WorkerReportsProgress = true;
@@ -212,7 +212,7 @@ namespace System.ComponentModel.Custom.Generic
             IsBusy = true;
             CancellationPending = false;
             asyncOperation = AsyncOperationManager.CreateOperation(argument);
-            threadStart.BeginInvoke(null, null);
+            workerthreadStart.Invoke();
             return true;
         }
         private void WorkerThreadStart()
